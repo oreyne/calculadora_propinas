@@ -19,10 +19,11 @@ const tipOptions = [
 ]
 
 type TipPorcentageProps = {
-  setTip: React.Dispatch<React.SetStateAction<number>>
+  setTip: React.Dispatch<React.SetStateAction<number>>,
+  tip: number
 }
 
-export default function TipPorcentage({setTip} : TipPorcentageProps) {
+export default function TipPorcentage({setTip, tip} : TipPorcentageProps) {
   return (
     <>
         <h3 className="font-black text-2xl">Propina:</h3>
@@ -38,6 +39,7 @@ export default function TipPorcentage({setTip} : TipPorcentageProps) {
                     name="tip"
                     value={item.value}
                     onChange={e => setTip(+e.target.value)}
+                    checked={item.value === tip}
                     ></input>
             </div>
             ))}
